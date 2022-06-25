@@ -1,0 +1,6 @@
+.eslintrc.js
+.prettierrc.js
+tailwind.config.js
+postcss.config.js
+stylelint.config.js
+/src/core/thirdPart

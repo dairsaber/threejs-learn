@@ -1,0 +1,16 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  // 保存修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 格式化配置 完成
+  "path-intellisense.mappings": { "@": "${workspaceRoot}/src/" },
+  // 关闭vscode样式校验 交给stylelint
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false
+}
