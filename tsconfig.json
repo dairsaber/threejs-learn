@@ -13,10 +13,11 @@
     "esModuleInterop": true,
     "allowJs": true,
     "noImplicitAny": false,
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "rootDir": "",
     "lib": ["esnext", "dom"],
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["src/*"]
     },
     "skipLibCheck": true
   },

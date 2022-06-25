@@ -11,11 +11,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "three": "^0.141.0",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
+    "@types/three": "^0.141.0",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "@vitejs/plugin-vue": "^2.3.3",
