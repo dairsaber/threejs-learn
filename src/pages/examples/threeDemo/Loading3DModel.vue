@@ -4,7 +4,6 @@ import { onMounted, ref } from "vue"
 import * as THREE from "three"
 const container = ref<HTMLDivElement>()
 
-// eslint-disable-next-line no-undef
 let scene: Nullable<THREE.Scene> = null
 
 onMounted(initThree)

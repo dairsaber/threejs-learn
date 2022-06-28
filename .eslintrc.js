@@ -28,6 +28,8 @@ module.exports = {
   plugins: ["vue", "@typescript-eslint"],
   rules: {
     indent: ["off", 2, { SwitchCase: 1 }],
+    // 关闭eslint未定义检查(ts会检查)
+    "no-undef": "off",
     "no-useless-escape": "off",
     "linebreak-style": "off",
     "@typescript-eslint/no-loss-of-precision": "off",
