@@ -14,7 +14,6 @@
     "allowJs": true,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "rootDir": "",
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["src/*"]
