@@ -25,3 +25,5 @@ declare type Undefable<T> = T | undefined
 declare type Nullable<T> = T | null
 
 declare type UndefOrNullable<T> = T | null | undefined
+
+declare type Recordable<T = any> = Record<string, T>
