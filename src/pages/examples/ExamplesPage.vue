@@ -3,7 +3,7 @@ import { DefineComponent, shallowRef } from "vue"
 import componentGroups from "@/pages/examples"
 
 const currentSelectKey = shallowRef<DefineComponent>(
-  componentGroups[0].components["TestPage"]
+  componentGroups[0]?.components?.[0].component
 )
 
 function handleSelected(key: DefineComponent) {
@@ -26,13 +26,13 @@ function handleSelected(key: DefineComponent) {
           </section>
 
           <button
-            v-for="(item, key) in group.components"
-            :key="key"
-            :class="{ selected: item === currentSelectKey }"
+            v-for="item in group.components"
+            :key="item.label"
+            :class="{ selected: item.component === currentSelectKey }"
             class="button"
-            @click="handleSelected(item)"
+            @click="handleSelected(item.component)"
           >
-            {{ key }}
+            {{ item.label }}
           </button>
         </template>
       </div>

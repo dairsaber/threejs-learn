@@ -1,41 +1,59 @@
-import { defineAsyncComponent } from "vue"
-import MyTest from "./test/MyTest.vue"
-import CreateScene from "./threeDemo/CreateScene.vue"
-import CreateLinesVue from "./threeDemo/CreateLines.vue"
-import CreateLineWithWidthVue from "./threeDemo/CreateLineWithWidth.vue"
-import Loading3DModelVue from "./threeDemo/Loading3DModel.vue"
-import MouseControlVue from "./threeDemo/MouseControl.vue"
-import MaterialPage from "./threeDemo/MaterialPage.vue"
+import { DefineComponent, defineAsyncComponent } from "vue"
 
-type GroupItem = { group: string; components: Recordable }
-// 在此注册示例
-const groups: GroupItem[] = [
+type GroupItem = {
+  group: string
+  components: { label: string; component: DefineComponent }[]
+}
+
+type GroupItemConfig = {
+  group: string
+  components: Recordable<() => Promise<any>>
+}
+
+/** 页面配置 */
+const config: GroupItemConfig[] = [
+  {
+    group: "Test",
+    components: { TestPage: () => import("./test/MyTest.vue") },
+  },
   {
     group: "threejs demo",
     components: {
-      [MyTest.name]: MyTest,
-      [CreateScene.name]: CreateScene,
-      [CreateLinesVue.name]: CreateLinesVue,
-      [CreateLineWithWidthVue.name]: CreateLineWithWidthVue,
-      [Loading3DModelVue.name]: Loading3DModelVue,
-      [MouseControlVue.name]: MouseControlVue,
-      [MaterialPage.name]: MaterialPage,
+      创建场景: () => import("./threeDemo/CreateScene.vue"),
+      创建线条: () => import("./threeDemo/CreateLines.vue"),
+      创建线条带宽度: () => import("./threeDemo/CreateLineWithWidth.vue"),
+      加载3d模型: () => import("./threeDemo/Loading3DModel.vue"),
+      摄像机控制: () => import("./threeDemo/MouseControl.vue"),
+      材质添加: () => import("./threeDemo/MaterialPage.vue"),
     },
   },
-  // 动态异步组件
   {
-    group: "shader demo",
+    group: "shader 着色器",
     components: {
-      默认的shader材质: defineAsyncComponent(
-        () => import("./glslDemo/GLSLDemo01.vue")
-      ),
-      GLSLDemo02: defineAsyncComponent(
-        () => import("./glslDemo/GLSLDemo02.vue")
-      ),
+      默认的shader材质: () => import("./glslDemo/GLSLDemo01.vue"),
+      TODO材质: () => import("./glslDemo/GLSLDemo02.vue"),
     },
   },
 ]
 
-export default groups
+/** 解析配置 */
+function resolveConfig(config: GroupItemConfig[]): GroupItem[] {
+  const groups: GroupItem[] = []
 
-// TODO 后面打算写个解析器动态加载examples里面的模块
+  config.forEach((groupItem) => {
+    const { group, components: componentConfigs } = groupItem
+    const keys = Object.keys(componentConfigs)
+    const components = keys.map((componentKey) => ({
+      label: componentKey,
+      component: defineAsyncComponent(componentConfigs[componentKey]),
+    }))
+
+    groups.push({ group, components })
+  })
+
+  return groups
+}
+
+const groups = resolveConfig(config)
+
+export default groups
