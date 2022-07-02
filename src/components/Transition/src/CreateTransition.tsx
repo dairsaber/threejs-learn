@@ -5,11 +5,7 @@ import { getSlot } from "@/utils/tsxHelper"
 
 type Mode = "in-out" | "out-in" | "default" | undefined
 
-export function createSimpleTransition(
-  name: string,
-  origin = "top center 0",
-  mode?: Mode
-) {
+export function createSimpleTransition(name: string, origin = "top center 0", mode?: Mode) {
   return defineComponent({
     name,
     props: {
@@ -34,12 +30,7 @@ export function createSimpleTransition(
       return () => {
         const Tag = !props.group ? Transition : TransitionGroup
         return (
-          <Tag
-            name={name}
-            mode={props.mode}
-            {...attrs}
-            onBeforeEnter={onBeforeEnter}
-          >
+          <Tag name={name} mode={props.mode} {...attrs} onBeforeEnter={onBeforeEnter}>
             {() => getSlot(slots)}
           </Tag>
         )
@@ -50,7 +41,7 @@ export function createSimpleTransition(
 export function createJavascriptTransition(
   name: string,
   functions: { [x: string]: any },
-  mode: Mode = "in-out"
+  mode: Mode = "in-out",
 ) {
   return defineComponent({
     name,

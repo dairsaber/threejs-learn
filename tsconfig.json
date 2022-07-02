@@ -2,35 +2,36 @@
   "compilerOptions": {
     "composite": true,
     "target": "esnext",
-    "useDefineForClassFields": true,
     "module": "esnext",
+    "strictFunctionTypes": false,
+    "useDefineForClassFields": true,
     "moduleResolution": "node",
     "strict": true,
+    "experimentalDecorators": true,
     "jsx": "preserve",
+    "noUnusedParameters": true,
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "allowJs": true,
+    "skipLibCheck": true,
+    "removeComments": true,
     "noImplicitAny": false,
+    "outDir": "outDir",
     "baseUrl": ".",
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["src/*"]
-    },
-    "skipLibCheck": true
+    }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "src/**/*.jsx",
     "vite.config.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "tests/server/**/*.ts",
-    "dist",
-    "core/thirdPart/**/*"
-  ]
+  "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "core/thirdPart/**/*"]
 }

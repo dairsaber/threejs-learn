@@ -1,11 +1,11 @@
 <script lang="ts" setup name="CreateText">
-import { onMounted, ref } from "vue"
-const threeContainer = ref<HTMLDivElement>()
-onMounted(initThree)
+  import { onMounted, ref } from "vue"
+  const threeContainer = ref<HTMLDivElement>()
+  onMounted(initThree)
 
-function initThree() {
-  // 官方推荐用css dom 渲染文字
-}
+  function initThree() {
+    // 官方推荐用css dom 渲染文字
+  }
 </script>
 
 <template>

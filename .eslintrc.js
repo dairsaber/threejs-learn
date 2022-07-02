@@ -11,25 +11,20 @@ module.exports = {
   ],
   parser: "vue-eslint-parser",
   parserOptions: {
-    parser: {
-      // Script parser for `<script>`
-      js: "espree",
-
-      // Script parser for `<script lang="ts">`
-      ts: "@typescript-eslint/parser",
-      // Script parser for vue directives (e.g. `v-if=` or `:attribute=`)
-      // and vue interpolations (e.g. `{{variable}}`).
-      // If not specified, the parser determined by `<script lang ="...">` is used.
-      "<template>": "espree",
-    },
-    ecmaVersion: "latest",
+    parser: "@typescript-eslint/parser",
+    ecmaVersion: 2020,
     sourceType: "module",
+    jsxPragma: "React",
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   plugins: ["vue", "@typescript-eslint"],
   rules: {
-    indent: ["off", 2, { SwitchCase: 1 }],
     // 关闭eslint未定义检查(ts会检查)
     "no-undef": "off",
+    indent: ["off", 2, { SwitchCase: 1 }],
+    "vue/one-component-per-file": "off",
     "no-useless-escape": "off",
     "linebreak-style": "off",
     "@typescript-eslint/no-loss-of-precision": "off",
@@ -61,6 +56,18 @@ module.exports = {
       {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_",
+      },
+    ],
+    "vue/html-self-closing": [
+      "error",
+      {
+        html: {
+          void: "always",
+          normal: "never",
+          component: "always",
+        },
+        svg: "always",
+        math: "always",
       },
     ],
   },

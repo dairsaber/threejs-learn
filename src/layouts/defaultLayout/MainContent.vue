@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+  import { ref } from "vue"
 
-// 开启路由缓存
-const openCache = ref(true)
-// 这里存储需要缓存的页面路由名称 默认undefined 存储所有页面
-const getCaches = ref<string[]>()
+  // 开启路由缓存
+  const openCache = ref(true)
+  // 这里存储需要缓存的页面路由名称 默认undefined 存储所有页面
+  const getCaches = ref<string[]>()
 </script>
 
 <template>

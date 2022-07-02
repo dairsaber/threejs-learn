@@ -14,7 +14,12 @@ type GroupItemConfig = {
 const config: GroupItemConfig[] = [
   {
     group: "Test",
-    components: { TestPage: () => import("./test/MyTest.vue") },
+    components: {
+      TestPage: () => import("./test/MyTest.vue"),
+      JsxTest: () => import("./test/JsxTest.jsx"),
+      TsxTest: () => import("./test/TsxTest"), // tsx结尾的扩展名不用加上会校验报错
+      VueTsx: () => import("./test/VueTsx.vue"),
+    },
   },
   {
     group: "threejs demo",
