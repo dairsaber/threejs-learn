@@ -1,4 +1,4 @@
-<script lang="ts" setup name="GLSLDemo02">
+<script lang="ts" setup name="GLSLDemo01">
   import { onMounted, onUnmounted, ref } from "vue"
   import * as THREE from "three"
 
@@ -9,7 +9,7 @@
   onUnmounted(() => removeResizeEvent?.())
 
   function init() {
-    const sence = new THREE.Scene()
+    const scene = new THREE.Scene()
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10)
 
     const renderer = new THREE.WebGLRenderer({ antialias: false })
@@ -24,7 +24,9 @@
     // 3. 根据材质和几何体创建网格模型
     const plane = new THREE.Mesh(geometry, material)
     // 4. 加入场景
-    sence.add(plane)
+    scene.add(plane)
+    // 5. 把相机向z轴正方向移动一个单位
+    camera.position.z = 1
 
     /** 公共方法 */
     const uniforms = {
@@ -43,7 +45,7 @@
 
     function onWindowResize() {
       const aspectRatio = window.innerWidth / window.innerHeight
-      let width, height
+      let width: number, height: number
       if (aspectRatio >= 1) {
         width = 1
         height = (window.innerHeight / window.innerWidth) * width
@@ -63,7 +65,7 @@
 
     function animate() {
       requestAnimationFrame(animate)
-      renderer.render(sence, camera)
+      renderer.render(scene, camera)
     }
   }
 </script>

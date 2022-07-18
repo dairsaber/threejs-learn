@@ -12,5 +12,9 @@
   // 关闭vscode样式校验 交给stylelint
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "cSpell.words": ["GLSL", "Undefable", "vshader"],
+  "[glsl]": {
+    "editor.defaultFormatter": "circledev.glsl-canvas"
+  }
 }

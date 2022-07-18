@@ -1,13 +1,14 @@
 {
   "recommendations": [
-    "Vue.volar",
+    "vue.volar",
     "eamodio.gitlens",
-    "xabikos.JavaScriptSnippets",
+    "xabikos.javascriptsnippets",
     "esbenp.prettier-vscode",
     "christian-kohler.path-intellisense",
     "mhutchie.git-graph",
     "dbaeumer.vscode-eslint",
-    "Vue.vscode-typescript-vue-plugin",
-    "stylelint.vscode-stylelint"
+    "vue.vscode-typescript-vue-plugin",
+    "stylelint.vscode-stylelint",
+    "bierner.comment-tagged-templates"
   ]
 }
