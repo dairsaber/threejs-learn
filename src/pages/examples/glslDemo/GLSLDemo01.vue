@@ -83,5 +83,3 @@
 <template>
   <div ref="container"></div>
 </template>
-
-<style lang="less" scoped></style>

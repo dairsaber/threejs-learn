@@ -30,6 +30,8 @@ const config: GroupItemConfig[] = [
       加载3d模型: () => import("./threeDemo/Loading3DModel.vue"),
       摄像机控制: () => import("./threeDemo/MouseControl.vue"),
       材质添加: () => import("./threeDemo/MaterialPage.vue"),
+      地球卫星: () => import("./threeDemo/EarthDemo.vue"),
+      "地球卫星+灯光": () => import("./threeDemo/EarthDemo02.vue"),
     },
   },
   {
