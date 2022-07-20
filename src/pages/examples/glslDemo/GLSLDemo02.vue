@@ -1,7 +1,8 @@
 <script lang="ts" setup name="GLSLDemo01">
   import { onMounted, onUnmounted, ref } from "vue"
   import * as THREE from "three"
-
+  import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+  import { fragmentShader, vertexShader } from "./demo02.glsl"
   const container = ref<HTMLDivElement>()
   let removeResizeEvent: Undefable<() => void> = undefined
 
@@ -10,62 +11,49 @@
 
   function init() {
     const scene = new THREE.Scene()
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10)
-
-    const renderer = new THREE.WebGLRenderer({ antialias: false })
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100)
+    const renderer = new THREE.WebGLRenderer({ antialias: true })
     renderer.setSize(window.innerWidth, window.innerHeight)
+    new OrbitControls(camera, renderer.domElement)
     container.value?.appendChild(renderer.domElement)
     /** TODO */
 
     // 1. 创建plane
-    const geometry = new THREE.PlaneGeometry(2, 2)
+    const geometry = new THREE.BoxGeometry(2, 2, 2)
     // 2. 创建一个默认的shader 材质
-    const material = new THREE.ShaderMaterial()
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        time: { value: 0 },
+        color: { value: new THREE.Color("#f02233") },
+      },
+      fragmentShader,
+      vertexShader,
+    })
     // 3. 根据材质和几何体创建网格模型
-    const plane = new THREE.Mesh(geometry, material)
+    const mesh = new THREE.Mesh(geometry, material)
     // 4. 加入场景
-    scene.add(plane)
+    scene.add(mesh)
     // 5. 把相机向z轴正方向移动一个单位
-    camera.position.z = 1
+    camera.position.z = 5
 
-    /** 公共方法 */
-    const uniforms = {
-      u_color: { value: new THREE.Color(0xff0000) },
-      u_time: { value: 0.0 },
-      u_mouse: { value: { x: 0.0, y: 0.0 } },
-      u_resolution: { value: { x: 0, y: 0 } },
-    }
-
-    onWindowResize()
-
-    window.addEventListener("resize", onWindowResize)
+    renderer.setClearColor("white")
     removeResizeEvent = () => window.removeEventListener("resize", onWindowResize)
 
+    const clock = new THREE.Clock()
     animate()
-
-    function onWindowResize() {
-      const aspectRatio = window.innerWidth / window.innerHeight
-      let width: number, height: number
-      if (aspectRatio >= 1) {
-        width = 1
-        height = (window.innerHeight / window.innerWidth) * width
-      } else {
-        width = aspectRatio
-        height = 1
-      }
-      camera.left = -width
-      camera.right = width
-      camera.top = height
-      camera.bottom = -height
-      camera.updateProjectionMatrix()
-      renderer.setSize(window.innerWidth, window.innerHeight)
-      uniforms.u_resolution.value.x = window.innerWidth
-      uniforms.u_resolution.value.y = window.innerHeight
-    }
-
     function animate() {
       requestAnimationFrame(animate)
+      material.uniforms.time.value = clock.getElapsedTime()
       renderer.render(scene, camera)
+    }
+
+    window.addEventListener("resize", onWindowResize)
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight
+      // 更新相机投影矩阵
+      camera.updateProjectionMatrix()
+      renderer.setSize(window.innerWidth, window.innerHeight)
     }
   }
 </script>
