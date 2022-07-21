@@ -6,6 +6,9 @@
   import fragmentShader from "./demo05.fs"
   import vertexShader from "./demo05.vs"
 
+  console.log("fragmentShader :>> ", fragmentShader)
+  console.log("vertexShader :>> ", vertexShader)
+
   const container = ref<HTMLDivElement>()
   let removeResizeEvent: Undefable<() => void> = undefined
 

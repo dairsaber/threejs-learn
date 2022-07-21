@@ -13,8 +13,11 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
+
   "cSpell.words": ["GLSL", "glslify", "Undefable", "vshader"],
   "[glsl]": {
-    "editor.defaultFormatter": "xaver.clang-format"
-  }
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": false
+  },
+  "clang-format.language.glsl.enable": true
 }

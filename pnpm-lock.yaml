@@ -28,13 +28,12 @@ specifiers:
   typescript: ^4.7.4
   vite: ^3.0.2
   vite-plugin-vue-setup-extend: ^0.4.0
-  vite3-plugin-glslify: ^0.0.4
+  vite3-plugin-glslify: ^0.0.7
   vue: ^3.2.37
   vue-router: ^4.1.2
   vue-tsc: ^0.38.9
 
 dependencies:
-  glsl-noise: 0.0.0
   three: 0.142.0
   vue: 3.2.37
   vue-router: 4.1.2_vue@3.2.37
@@ -52,6 +51,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_g4fztgbwjyq2fvmcscny2sj6fy
   eslint-plugin-vue: 9.2.0_eslint@8.20.0
   espree: 9.3.2
+  glsl-noise: 0.0.0
   husky: 8.0.1
   less: 4.1.3
   lint-staged: 13.0.3
@@ -65,7 +65,7 @@ devDependencies:
   typescript: 4.7.4
   vite: 3.0.2_less@4.1.3
   vite-plugin-vue-setup-extend: 0.4.0_vite@3.0.2
-  vite3-plugin-glslify: 0.0.4_vite@3.0.2
+  vite3-plugin-glslify: 0.0.7_vite@3.0.2
   vue-tsc: 0.38.9_typescript@4.7.4
 
 packages:
@@ -2041,7 +2041,7 @@ packages:
 
   /glsl-noise/0.0.0:
     resolution: {integrity: sha512-b/ZCF6amfAUb7dJM/MxRs7AetQEahYzJ8PtgfrmEdtw6uyGOr+ZSGtgjFm6mfsBkxJ4d2W7kg+Nlqzqvn3Bc0w==}
-    dev: false
+    dev: true
 
   /glsl-resolve/0.0.1:
     resolution: {integrity: sha512-xxFNsfnhZTK9NBhzJjSBGX6IOqYpvBHxxmo+4vapiljyGNCY0Bekzn0firQkQrazK59c1hYxMDxYS8MDlhw4gA==}
@@ -3668,8 +3668,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite3-plugin-glslify/0.0.4_vite@3.0.2:
-    resolution: {integrity: sha512-DGxf3bjWHQi3/teSSGCbqjs39oy0C9AZpeDbcwuyWGsysRiPPv3jFGf6QcZ9UpsL+ABxRYQohc/K/AChWnwmdg==}
+  /vite3-plugin-glslify/0.0.7_vite@3.0.2:
+    resolution: {integrity: sha512-sWGo6FkbbCLfug5QjdiC7Nr7Lf21ZV+VlWsUbe75NY5ylZsiPf926Wi376t8coLzAF4ad8hyTSQMlUf8dgrtVg==}
     peerDependencies:
       vite: ^3.0.2
     dependencies:
