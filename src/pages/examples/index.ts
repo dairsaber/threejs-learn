@@ -41,6 +41,7 @@ const config: GroupItemConfig[] = [
       着色器入门02: () => import("./glslDemo/GLSLDemo02.vue"),
       着色器入门03: () => import("./glslDemo/GLSLDemo03.vue"),
       着色器入门04: () => import("./glslDemo/GLSLDemo04.vue"),
+      "着色器入门05(noise)": () => import("./glslDemo/GLSLDemo05.vue"),
     },
   },
 ]

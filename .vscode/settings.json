@@ -13,7 +13,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "cSpell.words": ["GLSL", "Undefable", "vshader"],
+  "cSpell.words": ["GLSL", "glslify", "Undefable", "vshader"],
   "[glsl]": {
     "editor.defaultFormatter": "circledev.glsl-canvas"
   }
