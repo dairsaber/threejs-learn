@@ -37,8 +37,10 @@ const config: GroupItemConfig[] = [
   {
     group: "shader 着色器",
     components: {
-      默认的shader材质: () => import("./glslDemo/GLSLDemo01.vue"),
-      着色器入门: () => import("./glslDemo/GLSLDemo02.vue"),
+      着色器入门01: () => import("./glslDemo/GLSLDemo01.vue"),
+      着色器入门02: () => import("./glslDemo/GLSLDemo02.vue"),
+      着色器入门03: () => import("./glslDemo/GLSLDemo03.vue"),
+      着色器入门04: () => import("./glslDemo/GLSLDemo04.vue"),
     },
   },
 ]
