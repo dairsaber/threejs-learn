@@ -9,6 +9,8 @@
     "dbaeumer.vscode-eslint",
     "vue.vscode-typescript-vue-plugin",
     "stylelint.vscode-stylelint",
-    "bierner.comment-tagged-templates"
+    "bierner.comment-tagged-templates",
+    "xaver.clang-format",
+    "slevesque.shader"
   ]
 }

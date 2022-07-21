@@ -15,6 +15,6 @@
   "scss.validate": false,
   "cSpell.words": ["GLSL", "glslify", "Undefable", "vshader"],
   "[glsl]": {
-    "editor.defaultFormatter": "circledev.glsl-canvas"
+    "editor.defaultFormatter": "xaver.clang-format"
   }
 }

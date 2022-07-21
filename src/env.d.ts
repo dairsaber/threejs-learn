@@ -17,6 +17,16 @@ declare module "*.vue" {
   export default component
 }
 
+declare module "*.fs" {
+  export default string
+}
+declare module "*.vs" {
+  export default string
+}
+declare module "*.glsl" {
+  export default string
+}
+
 // Windows 上挂在的全局变量
 declare interface Window {}
 

@@ -2,7 +2,10 @@
   import { onMounted, onUnmounted, ref } from "vue"
   import * as THREE from "three"
   import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
-  import { fragmentShader, vertexShader } from "./demo05.glsl"
+  // import { fragmentShader, vertexShader } from "./demo05.glsl"
+  import fragmentShader from "./demo05.fs"
+  import vertexShader from "./demo05.vs"
+
   const container = ref<HTMLDivElement>()
   let removeResizeEvent: Undefable<() => void> = undefined
 
