@@ -1,0 +1,29 @@
+{
+	"files": [
+		{
+			"path": "src/pages/examples/glslDemo/GLSLDemo05.vue",
+			"bookmarks": [
+				{
+					"line": 26,
+					"column": 3,
+					"label": "开始创建几何体"
+				},
+				{
+					"line": 29,
+					"column": 3,
+					"label": "创建材质"
+				},
+				{
+					"line": 38,
+					"column": 1,
+					"label": "创建网格化几何实体"
+				},
+				{
+					"line": 44,
+					"column": 4,
+					"label": "设置背景颜色"
+				}
+			]
+		}
+	]
+}

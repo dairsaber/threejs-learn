@@ -43,6 +43,7 @@
     camera.position.z = 5
 
     renderer.setClearColor("white")
+
     removeResizeEvent = () => window.removeEventListener("resize", onWindowResize)
 
     const clock = new THREE.Clock()
