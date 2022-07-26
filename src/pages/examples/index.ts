@@ -32,6 +32,8 @@ const config: GroupItemConfig[] = [
       材质添加: () => import("./threeDemo/MaterialPage.vue"),
       地球卫星: () => import("./threeDemo/EarthDemo.vue"),
       "地球卫星+灯光": () => import("./threeDemo/EarthDemo02.vue"),
+      控制器: () => import("./threeDemo/OrbitControllerDemo"),
+      移动: () => import("./threeDemo/MoveDemo"),
     },
   },
   {
