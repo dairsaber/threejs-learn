@@ -34,6 +34,7 @@ const config: GroupItemConfig[] = [
       "地球卫星+灯光": () => import("./threeDemo/EarthDemo02.vue"),
       控制器: () => import("./threeDemo/OrbitControllerDemo"),
       移动: () => import("./threeDemo/MoveDemo"),
+      旋转: () => import("./threeDemo/RotationDemo"),
     },
   },
   {
