@@ -5,7 +5,7 @@ export type RenderFunc = (params: {
   clock: THREE.Clock
   scene: THREE.Scene
   camera: THREE.Camera
-  renderer: THREE.Renderer
+  renderer: THREE.WebGLRenderer
 }) => AnimateFunc | void
 
 export type AnimateFunc = (time: number) => void

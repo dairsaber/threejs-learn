@@ -15,6 +15,8 @@ export default () => {
     const axesHelper = new THREE.AxesHelper(5)
     scene.add(axesHelper)
 
+    renderer.setClearColor("#eee")
+
     return (time: number) => {
       console.log("time :>> ", time)
       boxMesh.position.set(Math.sin(time) + 1, Math.cos(time) + 1, Math.sin(time) * 2 + 2)
