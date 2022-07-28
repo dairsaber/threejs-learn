@@ -17,9 +17,12 @@ export default defineComponent({
   setup(props) {
     const containerRef = ref<HTMLDivElement>()
     let removeResizeEvent: Undefable<() => void> = undefined
-
+    let unmounted = false
     onMounted(init)
-    onUnmounted(() => removeResizeEvent?.())
+    onUnmounted(() => {
+      removeResizeEvent?.()
+      unmounted = true
+    })
 
     function init() {
       const containerEle = containerRef.value!
@@ -44,6 +47,7 @@ export default defineComponent({
       const onAnimate = props.onRender?.({ clock, scene, camera, renderer })
 
       function animate(time: number) {
+        if (unmounted) return
         onAnimate?.(time)
         requestAnimationFrame(animate)
         renderer.render(scene, camera)
