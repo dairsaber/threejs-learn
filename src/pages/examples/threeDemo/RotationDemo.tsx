@@ -18,8 +18,10 @@ export default () => {
     renderer.setClearColor("#eee")
 
     return (time: number) => {
+      const second = time / 1000
+
       // 旋转是按照弧度来的 角度的话得 2pi/360
-      boxMesh.rotation.x = time
+      boxMesh.rotation.x = second
     }
   }
 

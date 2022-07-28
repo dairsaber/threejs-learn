@@ -43,14 +43,13 @@ export default defineComponent({
 
       const onAnimate = props.onRender?.({ clock, scene, camera, renderer })
 
-      function animate() {
-        const time = clock.getElapsedTime()
+      function animate(time: number) {
         onAnimate?.(time)
         requestAnimationFrame(animate)
         renderer.render(scene, camera)
       }
 
-      animate()
+      requestAnimationFrame(animate)
 
       window.addEventListener("resize", onWindowResize)
 

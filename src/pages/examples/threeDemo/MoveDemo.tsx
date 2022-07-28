@@ -19,7 +19,8 @@ export default () => {
 
     return (time: number) => {
       console.log("time :>> ", time)
-      boxMesh.position.set(Math.sin(time) + 1, Math.cos(time) + 1, Math.sin(time) * 2 + 2)
+      const second = time / 1000
+      boxMesh.position.set(Math.sin(second) + 1, Math.cos(second) + 1, Math.sin(second) * 2 + 2)
     }
   }
 
