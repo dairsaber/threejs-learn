@@ -38,6 +38,18 @@ const config: GroupItemConfig[] = [
     },
   },
   {
+    group: "animation",
+    components: {
+      gsap动画: () => import("./animation/GsapAnimation"),
+    },
+  },
+  {
+    group: "dat.gui",
+    components: {
+      datGuiDemo: () => import("./datgui/DatGuiDemo"),
+    },
+  },
+  {
     group: "shader 着色器",
     components: {
       着色器入门01: () => import("./glslDemo/GLSLDemo01.vue"),

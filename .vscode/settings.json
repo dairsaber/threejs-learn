@@ -14,7 +14,16 @@
   "less.validate": false,
   "scss.validate": false,
 
-  "cSpell.words": ["GLSL", "glslify", "Undefable", "vshader"],
+  "cSpell.words": [
+    "datgui",
+    "GLSL",
+    "glslify",
+    "gsap",
+    "Undefable",
+    "vshader",
+    "wireframe",
+    "yoyo"
+  ],
   "[glsl]": {
     "editor.defaultFormatter": "xaver.clang-format",
     "editor.formatOnSave": false
