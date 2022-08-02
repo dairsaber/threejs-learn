@@ -1,13 +1,19 @@
 <script setup lang="ts">
   import { DefineComponent, shallowRef } from "vue"
   import componentGroups from "@/pages/examples"
+  import { useRouteQuery } from "@vueuse/router"
 
+  // 将组件参数固定在url上下次刷新还是这个页面组件
+  const example = useRouteQuery("example")
+  const components = componentGroups.reduce((prev, current) => [...prev, ...current.components], [])
+  const currentComponent = components.find((x) => x.label === example.value)?.component
   const currentSelectKey = shallowRef<DefineComponent>(
-    componentGroups[0]?.components?.[0].component,
+    currentComponent ?? components.find((x) => x.label === "TestPage")!.component,
   )
 
-  function handleSelected(key: DefineComponent) {
+  function handleSelected(key: DefineComponent, label: string) {
     currentSelectKey.value = key
+    example.value = label
   }
 </script>
 
@@ -26,7 +32,7 @@
             :key="item.label"
             :class="{ selected: item.component === currentSelectKey }"
             class="button"
-            @click="handleSelected(item.component)"
+            @click="handleSelected(item.component, item.label)"
           >
             {{ item.label }}
           </button>

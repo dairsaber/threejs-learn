@@ -11,6 +11,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vueuse/core": "^9.0.2",
+    "@vueuse/router": "^9.0.2",
     "dat.gui": "^0.7.9",
     "gsap": "^3.10.4",
     "three": "^0.142.0",

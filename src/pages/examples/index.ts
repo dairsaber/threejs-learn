@@ -50,6 +50,13 @@ const config: GroupItemConfig[] = [
     },
   },
   {
+    group: "几何体",
+    components: {
+      bufferGeometry: () => import("./geometry/BufferGeometry"),
+      炫酷的三角形: () => import("./geometry/GeometryEffect01"),
+    },
+  },
+  {
     group: "shader 着色器",
     components: {
       着色器入门01: () => import("./glslDemo/GLSLDemo01.vue"),
@@ -82,3 +89,5 @@ function resolveConfig(config: GroupItemConfig[]): GroupItem[] {
 const groups = resolveConfig(config)
 
 export default groups
+
+export { config }
