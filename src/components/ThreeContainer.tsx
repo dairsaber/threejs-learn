@@ -6,7 +6,7 @@ export type RenderFunc = (params: {
   scene: THREE.Scene
   camera: THREE.Camera
   renderer: THREE.WebGLRenderer
-}) => AnimateFunc | void
+}) => Undefable<AnimateFunc> | Promise<Undefable<AnimateFunc>>
 
 export type AnimateFunc = (time: number) => void
 
@@ -24,12 +24,12 @@ export default defineComponent({
     onUnmounted(destroy)
 
     // 初始化
-    function init() {
+    async function init() {
       const scene = new THREE.Scene()
       const camera = createCamera(scene)
       const renderer = initRenderer(containerRef.value!)
       const clock = new THREE.Clock()
-      const onAnimate = props.onRender?.({ clock, scene, camera, renderer })
+      const onAnimate = await props.onRender?.({ clock, scene, camera, renderer })
 
       removeResizeEvent = registerResizeEvent(camera, renderer)
 
@@ -67,7 +67,7 @@ function startPlay(
   scene: THREE.Scene,
   camera: THREE.Camera,
   renderer: THREE.WebGLRenderer,
-  callback?: Function,
+  callback?: AnimateFunc,
   cancelToken?: Ref<boolean>,
 ) {
   requestAnimationFrame(animate)

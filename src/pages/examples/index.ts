@@ -22,6 +22,12 @@ const config: GroupItemConfig[] = [
     },
   },
   {
+    group: "自定义模型及其动画",
+    components: {
+      cube: () => import("./customModels/Cube"),
+    },
+  },
+  {
     group: "threejs demo",
     components: {
       创建场景: () => import("./threeDemo/CreateScene.vue"),
